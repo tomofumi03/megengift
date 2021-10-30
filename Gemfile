@@ -11,6 +11,7 @@ gem 'jbuilder',     '2.6.4'
 gem 'bootsnap'
 gem 'pry-rails'
 gem 'bcrypt',       '3.1.12'
+gem 'bootstrap-sass', '3.3.7'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'

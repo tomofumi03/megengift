@@ -1,0 +1,20 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Meigengift</title>
+  </head>
+    <body>
+      <%= link_to new_user_path do %>
+      <div class="center">
+        <h1 class="text-warning">Meigengift</h1>
+          <p class="text-warning">
+            Meigengiftへようこそ。
+          </p>
+          <p class="text-warning">
+            先人たちの知恵を１日に一度あなたへ。
+          </p>
+      </div>
+      <% end %>
+  </body>
+</html>
