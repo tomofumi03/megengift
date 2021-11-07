@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     else
       #binding.pry
       redirect_to new_user_path
-      flash[:success] = "登録に失敗しました"
+      flash[:notice] = "登録できませんでした。恐れ入りますが、もう一度やり直してください。"
       #render 'new'
     end
   end
