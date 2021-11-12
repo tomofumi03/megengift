@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       #log_in @user
-      flash[:success] = "#{@user.name}さん! ようこそ"
+      flash[:notice] = "#{@user.name}さん! ようこそ"
       redirect_to user_path(@user)
     else
       #binding.pry
