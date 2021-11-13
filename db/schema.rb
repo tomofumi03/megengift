@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_134229) do
+ActiveRecord::Schema.define(version: 2021_11_13_021724) do
 
   create_table "phrases", force: :cascade do |t|
     t.text "sentence"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_10_27_134229) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
 end

@@ -6,14 +6,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #log_in @user
+      log_in @user
       flash[:notice] = "#{@user.name}さん! ようこそ"
       redirect_to user_path(@user)
     else
       #binding.pry
       redirect_to new_user_path
       flash[:notice] = "登録できませんでした。恐れ入りますが、もう一度やり直してください。"
-      #render 'new'
     end
   end
 
