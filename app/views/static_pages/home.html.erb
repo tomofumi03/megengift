@@ -5,16 +5,14 @@
     <title><%= yield(:title) %> | Meigengift</title>
   </head>
     <body>
-      <%= link_to new_user_path do %>
-      <div class="center">
-        <h1 class="text-warning">Meigengift</h1>
-          <p class="text-warning">
-            Meigengiftへようこそ。
-          </p>
-          <p class="text-warning">
-            先人たちの知恵を１日に一度あなたへ。
-          </p>
-      </div>
+      <% if current_user %>
+        <%= link_to user_path(current_user) do %>
+          <%= render 'title' %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_path do %>
+          <%= render 'title' %>
+        <% end %>
       <% end %>
   </body>
 </html>
