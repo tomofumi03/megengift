@@ -10,15 +10,19 @@
                 Menu <b class="caret"></b>
               </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Settings", '#' %></li>
+                  
                   <li class="divider"></li>
                   <li>
-                    <%= link_to "Log out", logout_path, method: :delete %>
+                    <%= link_to "ログアウト", logout_path, method: :delete %>
+                  </li>
+                  <li>
+                    <%= link_to "登録を削除", current_user, method: :delete,
+                                  data: { confirm: "本当に削除しますか?" } %>
                   </li>
                 </ul>
               </li>
           <% else %>
-            <li><%= link_to "Log in", login_path %></li>
+            <li><a class="nav-link active text-muted" <%= link_to "Log in", login_path %></a></li>
           <% end %>
         </ul>
     </nav>

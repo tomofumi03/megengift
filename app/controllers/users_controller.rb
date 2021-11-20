@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -22,6 +22,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @phrase = Phrase.where( 'id >= ?', rand(Phrase.first.id..Phrase.last.id) ).first
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:notice] = "登録を削除しました。"
+    redirect_to root_path
   end
 
   private
