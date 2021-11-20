@@ -38,6 +38,17 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  # 記憶したURL (もしくはデフォルト値) にリダイレクト
+  def redirect_back_or(default)
+    #binding.pry
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
 
+  # アクセスしようとしたURLを覚えておく
+  def store_location
+    #binding.pry
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 
 end

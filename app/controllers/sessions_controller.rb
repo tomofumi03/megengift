@@ -3,12 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
+    #binding.pry
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       flash[:notice] = "ログインしました。"
       log_in user
       remember user
-      redirect_to user
+      redirect_back_or user
     else
       flash[:notice] = "恐れ入りますが、もう一度やり直してください。"
       render 'new'
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
+    flash[:notice] = "ログアウトしました。"
     redirect_to root_path
   end
 
